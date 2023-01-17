@@ -92,7 +92,7 @@ function getTime() {
 var storage = multer.diskStorage({
 
     destination: (req, file, callBack) => {
-        callBack(null, 'C:\\Users\\SORNALAKSHMI J\\Downloads\\OnlinePizzaOrderingSystemAngular-master\\OnlinePizzaOrderingSystemAngular-master\\src\\assets\\pizza')
+        callBack(null, 'https://frontend-p07h.onrender.com/src//assets//pizza')
     },
     filename: (req, file, callBack) => {
         callBack(null, `${getTime()}-${file.originalname}`)
@@ -112,7 +112,7 @@ router.post("/addpizza", verifyToken, upload.single('file'), (req, res, next) =>
     })
     try {
         doc = pizza.save();
-        console.log("Added a pizza");
+        console.log("Added a food");
         return res.status(201).json(doc);
     }
     catch (err) {
